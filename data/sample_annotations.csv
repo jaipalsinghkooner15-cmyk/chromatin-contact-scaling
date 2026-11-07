@@ -72,6 +72,35 @@ BRD3162,GSE133928,GSM3930256,BRD3162,BRD3162,,tumour,COAD,Colon,in situ Hi-C,no,
 BxPC3,GSE185069,,BxPC3,BxPC3,BxPC3,cancer_cell_line,PAAD,Pancreas,Hi-C,no,,Supervisor table (Table_data.xlsx); per-chromosome .hic files from GEO,
 PANC1,GSE185069,,PANC1,PANC1,PANC1,cancer_cell_line,PAAD,Pancreas,Hi-C,no,,Supervisor table (Table_data.xlsx); per-chromosome .hic files from GEO,
 HPDE6C7,GSE185069,,HPDE6C7,HPDE6C7,HPDE6C7,normal_cell_line,,Pancreas,Hi-C,no,,Supervisor table (Table_data.xlsx); per-chromosome .hic files from GEO,Normal pancreatic duct control
+BLCA_Tumor_T1,GSE148079,GSM4453815,Bladder tumour T1,BLCA_Tumor_T1,,tumour,BLCA,Bladder,in situ Hi-C,no,,GEO title 'Tumor_T1_HiC'; study-level file GSE148079_Tumor_T1_HiC.mcool,Primary bladder tumour; same study and protocol as the bladder cell lines
+BLCA_Tumor_T2,GSE148079,GSM4453816,Bladder tumour T2,BLCA_Tumor_T2,,tumour,BLCA,Bladder,in situ Hi-C,no,,GEO title 'Tumor_T2_HiC'; study-level file GSE148079_Tumor_T2_HiC.mcool,Primary bladder tumour; same study and protocol as the bladder cell lines
+BLCA_Tumor_T3,GSE148079,GSM4995928,Bladder tumour T3,BLCA_Tumor_T3,,tumour,BLCA,Bladder,in situ Hi-C,no,,GEO title 'Tumor_T3_HiC'; study-level file GSE148079_Tumor_T3_HiC.mcool,Primary bladder tumour; same study and protocol as the bladder cell lines
+BLCA_Tumor_T4,GSE148079,GSM4995929,Bladder tumour T4,BLCA_Tumor_T4,,tumour,BLCA,Bladder,in situ Hi-C,no,,GEO title 'Tumor_T4_HiC'; study-level file GSE148079_Tumor_T4_HiC.mcool,Primary bladder tumour; same study and protocol as the bladder cell lines
+BLCA_Tumor_T5,GSE148079,GSM4995930,Bladder tumour T5,BLCA_Tumor_T5,,tumour,BLCA,Bladder,in situ Hi-C,no,,GEO title 'Tumor_T5_HiC'; study-level file GSE148079_Tumor_T5_HiC.mcool,Primary bladder tumour; same study and protocol as the bladder cell lines
+BRD3179,GSE133928,GSM3930259,BRD3179,BRD3179,,tumour,COAD,Colon,in situ Hi-C,no,,GEO title 'BRD3179_HiC',"Primary colon tumour; same study as SW480, HCT116, LS174T and RKO"
+BRD3187,GSE133928,GSM3930261,BRD3187,BRD3187,,tumour,COAD,Colon,in situ Hi-C,no,,GEO title 'BRD3187_HiC',"Primary colon tumour; same study as SW480, HCT116, LS174T and RKO"
+BRD3378,GSE133928,GSM4513970,BRD3378,BRD3378,,tumour,COAD,Colon,in situ Hi-C,no,,GEO title 'BRD3378_HiC',"Primary colon tumour; same study as SW480, HCT116, LS174T and RKO"
+BRD3412,GSE133928,GSM4513973,BRD3412,BRD3412,,tumour,COAD,Colon,in situ Hi-C,no,,GEO title 'BRD3412_HiC',"Primary colon tumour; same study as SW480, HCT116, LS174T and RKO"
+BRD3462,GSE133928,GSM4513974,BRD3462,BRD3462,,tumour,COAD,Colon,in situ Hi-C,no,,GEO title 'BRD3462_HiC',"Primary colon tumour; same study as SW480, HCT116, LS174T and RKO"
+MGH1904,GSE133928,GSM3930286,MGH1904,MGH1904,,tumour,COAD,Colon,in situ Hi-C,no,,GEO title 'MGH1904_HiC',"Primary colon tumour; same study as SW480, HCT116, LS174T and RKO"
+MGH2231,GSE133928,GSM3930288,MGH2231,MGH2231,,tumour,COAD,Colon,in situ Hi-C,no,,GEO title 'MGH2231-sb_HiC',"Primary colon tumour; same study as SW480, HCT116, LS174T and RKO; only the shallower -sb run exists for this patient"
+MGH2834,GSE133928,GSM3930289,MGH2834,MGH2834,,tumour,COAD,Colon,in situ Hi-C,no,,GEO title 'MGH2834_HiC',"Primary colon tumour; same study as SW480, HCT116, LS174T and RKO"
+MGH5328,GSE133928,GSM3930290,MGH5328,MGH5328,,tumour,COAD,Colon,in situ Hi-C,no,,GEO title 'MGH5328_HiC',"Primary colon tumour; same study as SW480, HCT116, LS174T and RKO"
+MGH8416,GSE133928,GSM3930291,MGH8416,MGH8416,,tumour,COAD,Colon,in situ Hi-C,no,,GEO title 'MGH8416_HiC',"Primary colon tumour; same study as SW480, HCT116, LS174T and RKO"
+MGH3535,GSE133928,GSM4513992,MGH3535,MGH3535,,tumour,COAD,Colon,in situ Hi-C,no,,GEO title 'MGH3535_HiC',"Primary colon tumour; same study as SW480, HCT116, LS174T and RKO"
+BRD3162N,GSE133928,GSM3930257,BRD3162N,BRD3162N,,normal_primary,,Colon,in situ Hi-C,no,,GEO title 'BRD3162N-sb_HiC',Normal colon tissue; same patient as tumour BRD3162; only the shallower -sb run exists for this sample
+BRD3170N,GSE133928,GSM3930258,BRD3170N,BRD3170N,,normal_primary,,Colon,in situ Hi-C,no,,GEO title 'BRD3170N-sb_HiC',Normal colon tissue; only the shallower -sb run exists for this sample
+BRD3179N,GSE133928,GSM3930260,BRD3179N,BRD3179N,,normal_primary,,Colon,in situ Hi-C,no,,GEO title 'BRD3179N_HiC',Normal colon tissue; same patient as tumour BRD3179
+BRD3187N,GSE133928,GSM3930262,BRD3187N,BRD3187N,,normal_primary,,Colon,in situ Hi-C,no,,GEO title 'BRD3187N_HiC',Normal colon tissue; same patient as tumour BRD3187
+BRD3328N,GSE133928,GSM3930263,BRD3328N,BRD3328N,,normal_primary,,Colon,in situ Hi-C,no,,GEO title 'BRD3328N_HiC',Normal colon tissue
+BRD3409N,GSE133928,GSM4513971,BRD3409N,BRD3409N,,normal_primary,,Colon,in situ Hi-C,no,,GEO title 'BRD3409N_HiC',Normal colon tissue
+BRD3462N,GSE133928,GSM3930265,BRD3462N,BRD3462N,,normal_primary,,Colon,in situ Hi-C,no,,GEO title 'BRD3462N_HiC',Normal colon tissue; same patient as tumour BRD3462
+HCT116,GSE133928,GSM3930269,HCT116,HCT116,HCT116,cancer_cell_line,COAD,Colon,in situ Hi-C,no,,GEO title 'HCT116-0h-1_HiC',Replicate 1 only; untreated (0 h) for HCT116
+LS174T,GSE133928,GSM3930284,LS174T,LS174T,LS174T,cancer_cell_line,COAD,Colon,in situ Hi-C,no,,GEO title 'LS174T-1_HiC',Replicate 1 only
+RKO,GSE133928,GSM3930292,RKO,RKO,RKO,cancer_cell_line,COAD,Colon,in situ Hi-C,no,,GEO title 'RKO-1_HiC',Replicate 1 only
+FHC,GSE133928,GSM3930267,FHC,FHC,FHC,normal_cell_line,,Colon,in situ Hi-C,no,,GEO title 'FHC-1_HiC',Normal colon epithelial cells grown in culture; replicate 1 only
+C42B,GSE118629,GSM3564254; GSM3564255; GSM3564256,C4-2B,C42B,C42B,cancer_cell_line,PRAD,Prostate,in situ Hi-C,no,,GEO titles 'in situ Hi-C in C42B rep1-3'; processed file attached to rep1,"Derived from LNCaP, so unrelated to 22Rv1"
+RWPE1,GSE118629,GSM3564252; GSM3564253,RWPE1,RWPE1,RWPE1,normal_cell_line,,Prostate,in situ Hi-C,no,,GEO titles 'in situ Hi-C in RWPE1 rep1/rep2'; processed file attached to rep1,Normal prostate epithelial cells grown in culture
 BLCA-1067A79F-15D6-4D64-BBC3-268BE15434A1-X009-S03-B1-T1,TCGA,,BLCA-1067A79F,BLCA-1067A79F-15D6-4D64-BBC3-268BE15434A1-X009-S03-B1-T1,,tumour,BLCA,Bladder,HiChIP (H3K27ac),no,,File name carries an individual sample ID,
 BLCA-6E1FF9EA-8875-439E-AF5A-A7B7DDFB247C-X019-S01-B1-T1,TCGA,,BLCA-6E1FF9EA,BLCA-6E1FF9EA-8875-439E-AF5A-A7B7DDFB247C-X019-S01-B1-T1,,tumour,BLCA,Bladder,HiChIP (H3K27ac),no,,File name carries an individual sample ID,
 BLCA-CC5A9968-1F7F-4698-B483-1D426BF00AE3-X016-S06-B1-T1,TCGA,,BLCA-CC5A9968,BLCA-CC5A9968-1F7F-4698-B483-1D426BF00AE3-X016-S06-B1-T1,,tumour,BLCA,Bladder,HiChIP (H3K27ac),no,,File name carries an individual sample ID,
