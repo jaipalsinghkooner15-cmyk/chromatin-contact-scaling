@@ -8,12 +8,13 @@ truth for what each sample is: name, cancer type, sample class and whether it
 is excluded. Labels written by the processing steps are kept only for
 comparison and are never used on their own.
 
-Inputs (all under --data-root, see RESULTS_FILES for details)
-    cellline_alpha_results.csv                   02_process_cellline_hic.py
-    gbm_patient_alpha_results.csv                GBM_processing.py (GSE229962)
-    gbm_cellline_alpha_results.csv               03_process_gbm_celllines.py (GSE280831)
-    TCGA_HiChIP_hic/TCGA_powerlaw_results.csv    TCGA HiChIP processing
-Plus data/sample_annotations.csv, kept in this repository.
+Inputs
+    <data-root>/alpha_results.csv   written by 02_compute_alpha.py (one method, every sample)
+    data/sample_annotations.csv     kept in this repository
+
+The older per-dataset results files (cellline, GSE229962, GSE280831 and TCGA)
+were replaced by alpha_results.csv on 7 Nov 2026. Their labels were checked
+against the annotations before the switch; see the git history of this file.
 
 Outputs
     <data-root>/master_alpha_table.csv     one row per sample, excluded ones included
@@ -94,71 +95,19 @@ class ResultsFile:
 
 RESULTS_FILES = [
     ResultsFile(
-        path="cellline_alpha_results.csv",
-        producer="02_process_cellline_hic.py",
-        pipeline_sample_class="cancer_cell_line",
+        path="alpha_results.csv",
+        producer="02_compute_alpha.py",
+        pipeline_sample_class="",  # the new pipeline does not label samples
         columns={
-            "sample": "sample_id",
-            "source": "dataset",
-            "cancer_type": "pipeline_cancer_type",
+            "sample_id": "sample_id",
+            "dataset": "dataset",
             "genome": "genome",
-            "resolution": "resolution_bp",
+            "resolution_bp": "resolution_bp",
             "alpha": "alpha",
             "r_squared": "r_squared",
             "n_points": "n_points",
         },
-    ),
-    ResultsFile(
-        path="gbm_patient_alpha_results.csv",
-        producer="GBM_processing.py",
-        pipeline_sample_class="tumour",
-        columns={
-            "sample": "sample_id",
-            "source": "dataset",
-            "cancer_type": "pipeline_cancer_type",
-            "alpha": "alpha",
-            "r_squared": "r_squared",
-        },
-        fixed={
-            "genome": "hg38",          # Xie et al. 2024, Methods: aligned to GRCh38
-            "resolution_bp": 50_000,   # RESOLUTION in GBM_processing.py
-            "n_points": None,          # not recorded by GBM_processing.py
-        },
-    ),
-    ResultsFile(
-        path="gbm_cellline_alpha_results.csv",
-        producer="03_process_gbm_celllines.py",
-        pipeline_sample_class="cancer_cell_line",
-        columns={
-            "sample": "sample_id",
-            "source": "dataset",
-            "cancer_type": "pipeline_cancer_type",
-            "alpha": "alpha",
-            "r_squared": "r_squared",
-        },
-        fixed={
-            "genome": "hg38",          # stated in 03_process_gbm_celllines.py
-            "resolution_bp": 50_000,   # RESOLUTION in 03_process_gbm_celllines.py
-            "n_points": None,          # not recorded by 03_process_gbm_celllines.py
-        },
-    ),
-    ResultsFile(
-        path="TCGA_HiChIP_hic/TCGA_powerlaw_results.csv",
-        producer="the TCGA HiChIP processing script",
-        pipeline_sample_class="tumour",
-        columns={
-            "Sample": "sample_id",
-            "Cancer_Type": "pipeline_cancer_type",
-            "Alpha": "alpha",
-            "R_squared": "r_squared",
-            "n_points": "n_points",
-        },
-        fixed={
-            "dataset": "TCGA",
-            "genome": None,            # processing script not in the repository yet
-            "resolution_bp": None,     # processing script not in the repository yet
-        },
-        sample_suffix="_H3K27ac.allValidPairs.hic",
+        fixed={"pipeline_cancer_type": ""},  # labels come only from the annotations
     ),
 ]
 
@@ -342,7 +291,9 @@ def print_report(table: pd.DataFrame, annotations: pd.DataFrame) -> None:
         index=reviewed.index,
         dtype=bool,
     )
-    changed = (
+    # Only results files that carried their own labels can disagree with the annotations.
+    labelled = reviewed["pipeline_sample_class"] != ""
+    changed = labelled & (
         (reviewed["cancer_type"] != reviewed["pipeline_cancer_type"])
         | (reviewed["sample_class"] != reviewed["pipeline_sample_class"])
         | renamed
@@ -366,7 +317,10 @@ def print_report(table: pd.DataFrame, annotations: pd.DataFrame) -> None:
         table.loc[table["exclude"], ["sample_id", "sample_name", "exclusion_reason"]],
     )
 
-    unmatched = annotations.loc[~annotations["sample_id"].isin(table["sample_id"]), "sample_id"]
+    # Excluded samples (e.g. pooled TCGA files) are not computed, so only included ones count.
+    unmatched = annotations.loc[
+        ~annotations["exclude"] & ~annotations["sample_id"].isin(table["sample_id"]), "sample_id"
+    ]
     if not unmatched.empty:
         print(f"\nWARNING: annotated but not in any results file: {', '.join(unmatched)}")
 
