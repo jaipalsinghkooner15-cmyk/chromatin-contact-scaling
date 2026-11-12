@@ -1,0 +1,9 @@
+sample_id,pair,condition,file,genome
+repA_DIvA,Replicate A,DIvA,DIvA_manipA_inter.hic,hg19
+repA_OHT,Replicate A,OHT,OHT_manipA_inter.hic,hg19
+repB_DIvA,Replicate B,DIvA,DIvA_manipB_inter.hic,hg19
+repB_OHT,Replicate B,OHT,OHT_manipB_inter.hic,hg19
+siControl_DIvA,siControl,DIvA,CTRLDIvA.hic,hg19
+siControl_OHT,siControl,OHT,CTRLOHT.hic,hg19
+siSCC1_DIvA,siSCC1,DIvA,siSCC1DIvA.hic,hg19
+siSCC1_OHT,siSCC1,OHT,siSCC1OHT.hic,hg19
